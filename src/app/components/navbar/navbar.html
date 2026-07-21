@@ -1,0 +1,50 @@
+<nav>
+  <div class="logo">RV</div>
+
+  <!-- Mobile Menu Icon -->
+  <div class="menu-icon" (click)="toggleMenu()">
+    {{ menuOpen ? '✕' : '☰' }}
+  </div>
+
+  <ul [class.mobile-menu]="menuOpen">
+    <li>
+      <a href="#home" (click)="closeMenu()" [class.active]="activeSection() === 'home'"> Home </a>
+    </li>
+
+    <li>
+      <a href="#about" (click)="closeMenu()" [class.active]="activeSection() === 'about'">
+        About
+      </a>
+    </li>
+
+    <li>
+      <a href="#skills" (click)="closeMenu()" [class.active]="activeSection() === 'skills'">
+        Skills
+      </a>
+    </li>
+
+    <li>
+      <a href="#projects" (click)="closeMenu()" [class.active]="activeSection() === 'projects'">
+        Projects
+      </a>
+    </li>
+
+    <li>
+      <a href="#experience" (click)="closeMenu()" [class.active]="activeSection() === 'experience'">
+        Experience
+      </a>
+    </li>
+
+    <li>
+      <a href="#contact" (click)="closeMenu()" [class.active]="activeSection() === 'contact'">
+        Contact
+      </a>
+    </li>
+
+    <li>
+      <button class="theme-btn" (click)="theme.toggleTheme()">
+        {{ theme.isDark() ? '🌙' : '☀️' }}
+      </button>
+    </li>
+  </ul>
+</nav>

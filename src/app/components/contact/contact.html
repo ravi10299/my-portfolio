@@ -1,0 +1,45 @@
+<section class="contact" id="contact" data-aos="fade-up">
+  <div class="container">
+    <div class="left">
+      <span class="title"> Contact Me </span>
+
+      <h2>Let's Build Something Amazing</h2>
+
+      <p>
+        I'm available for Full Stack Java Developer opportunities, freelance projects and
+        collaborations.
+      </p>
+
+      <div class="info">
+        <div class="item">
+          📧
+          <span>ravi.verma10299@gmail.com</span>
+        </div>
+
+        <div class="item">
+          📱
+          <span>+917068338232</span>
+        </div>
+
+        <div class="item">
+          📍
+          <span>Varanasi, Uttar Pradesh</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <input type="text" placeholder="Full Name" formControlName="name" />
+
+        <input type="email" placeholder="Email" formControlName="email" />
+
+        <input type="text" placeholder="Subject" formControlName="subject" />
+
+        <textarea rows="6" placeholder="Message" formControlName="message"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>

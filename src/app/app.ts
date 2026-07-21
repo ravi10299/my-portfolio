@@ -1,12 +1,26 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from './components/navbar/navbar';
+import { Hero } from './components/hero/hero';
+import { About } from './components/about/about';
+import { Skills } from './components/skills/skills';
+import { Experience } from './components/experience/experience';
+import { ProjectsComponent } from './components/projects/projects';
+import { Contact } from './components/contact/contact';
+import { FooterComponent } from './components/footer/footer';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Navbar, Hero, About, Skills, Experience, ProjectsComponent, Contact, FooterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('myPortfolio');
+  ngOnInit() {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }
 }
