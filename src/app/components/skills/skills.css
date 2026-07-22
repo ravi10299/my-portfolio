@@ -109,5 +109,9 @@
     .skill-card{
         padding: 22px;
     }
-
+.skills h2{
+    font-size: 23px;
+    margin: 10px 0;
+    color: var(--text);
+}
 }
