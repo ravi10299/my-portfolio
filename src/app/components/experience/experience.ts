@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class Experience {
   timeline = [
     {
-      year: '2024 - Present',
+      year: 'Nov 2023 - Present',
       title: 'Full Stack Java Developer',
       company: 'Hindsol Software Pvt. Ltd.',
       description: [
