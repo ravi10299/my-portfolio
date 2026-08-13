@@ -39,7 +39,7 @@ export class Contact {
     this.showError = false;
 
     this.http
-      .post('https://email-sender-owkp.onrender.com/api/contact', this.contactForm.value, { responseType: 'text' })
+      .post('https://email-sender-n6dj.onrender.com/api/contact', this.contactForm.value, { responseType: 'text' })
       .subscribe({
         next: (response) => {
           console.log(response);
