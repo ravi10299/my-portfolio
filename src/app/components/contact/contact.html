@@ -29,16 +29,83 @@
     </div>
 
     <div class="right">
+      <div *ngIf="showSuccess" class="success-message">
+        <span class="icon">✓</span>
+        <div>
+          <strong>Message Sent!</strong>
+          <p>Thank you! Your message has been sent successfully.</p>
+        </div>
+      </div>
+
+      <div *ngIf="showError" class="error-message">
+        <span class="icon">!</span>
+        <div>
+          <strong>Something went wrong!</strong>
+          <p>Unable to send your message. Please try again.</p>
+        </div>
+      </div>
+
       <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <!-- Name -->
         <input type="text" placeholder="Full Name" formControlName="name" />
 
+        <div
+          class="error"
+          *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.hasError('required')"
+        >
+          Name is required.
+        </div>
+
+        <!-- Email -->
         <input type="email" placeholder="Email" formControlName="email" />
 
+        <div
+          class="error"
+          *ngIf="
+            contactForm.get('email')?.touched && contactForm.get('email')?.hasError('required')
+          "
+        >
+          Email is required.
+        </div>
+
+        <div
+          class="error"
+          *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('email')"
+        >
+          Please enter a valid email address.
+        </div>
+
+        <!-- Subject -->
         <input type="text" placeholder="Subject" formControlName="subject" />
 
+        <div
+          class="error"
+          *ngIf="
+            contactForm.get('subject')?.touched && contactForm.get('subject')?.hasError('required')
+          "
+        >
+          Subject is required.
+        </div>
+
+        <!-- Message -->
         <textarea rows="6" placeholder="Message" formControlName="message"></textarea>
 
-        <button type="submit">Send Message</button>
+        <div
+          class="error"
+          *ngIf="
+            contactForm.get('message')?.touched && contactForm.get('message')?.hasError('required')
+          "
+        >
+          Message is required.
+        </div>
+
+        <button type="submit" [disabled]="contactForm.invalid || isSending">
+          <span *ngIf="isSending" class="spinner"></span>
+
+          <span>
+            {{ isSending ? 'Sending...' : 'Send Message' }}
+          </span>
+        </button>
       </form>
     </div>
   </div>
